@@ -1,0 +1,124 @@
+/* Hero Section */
+#hero-section {
+    position: relative;
+    width: 100%;
+    height: 150vh;
+    background: #040c18;
+    color: white;
+    margin-top: -100px;
+  }
+  
+  .hero-container {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    width: 80%;
+    margin: 0 auto;
+    z-index: 1;
+  }
+  
+  /* Left Section */
+  .hero-left {
+    flex: 1;
+    color: white;
+    padding: 20px;
+  }
+  
+/* Typing effect for h1 */
+.hero-left h1 {
+  font-size: 70px;
+  font-family: 'Arial', sans-serif;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 3px solid #560BAD; /* Cursor effect */
+  animation: typing 3s steps(30) 1s forwards, blink 0.75s step-end infinite, hideCursor 3s 1s forwards;
+}
+
+/* Typing effect for p */
+.hero-left p {
+  overflow: hidden;
+  white-space: normal;
+  visibility: hidden; 
+  border-right: 3px solid #560BAD;
+  animation: typing 1s steps(30) 4s forwards, blink 0.75s step-end infinite, hideCursor 3s 4s forwards;
+  word-wrap: break-word; 
+  max-width: 90%;  /* Control width */
+  width: 100%;  /* Ensure full width on smaller screens */
+  box-sizing: border-box; /* Include padding in width calculation */
+  font-size: 18px;
+  font-weight: 400;
+}
+
+@media (max-width: 768px) {
+  .hero-left p {
+    max-width: 100%;  /* Full width on mobile */
+  }
+}
+
+
+/* Typing animation */
+@keyframes typing {
+  0% { width: 0; visibility: visible; }
+  100% { width: 100%; visibility: visible; }
+}
+
+/* Blinking cursor effect */
+@keyframes blink {
+  50% { border-color: transparent; }
+}
+
+/* Hide the cursor after typing */
+@keyframes hideCursor {
+  100% { border-color: transparent; }
+}
+
+
+  /* Hire Me Button */
+  .cta-button {
+    padding: 12px 30px;  /* Adjusted padding */
+    background-color: #560BAD;
+    color: white;
+    border-radius: 30px;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+    display: inline-block;
+    margin-top: 20px;
+  }
+  
+  .cta-button:hover {
+    background-color: #7209B7;
+  }
+  
+  /* Right Section */
+  .hero-right {
+    flex: 1;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Rotating Circle */
+  .rotating-circle img {
+    margin-left: 40%;
+    width: 100%;
+    height: 100%;
+    opacity: 0.7;
+;  }
+  
+
+
+
+.rotating-circle img:hover {
+  transform: scale(1.1);
+  }
+  
+  /* Animations */
+  @keyframes rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  

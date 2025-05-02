@@ -1,0 +1,96 @@
+.contact-section {
+  padding: 80px 20px;
+  text-align: center;
+  background: #040c18;
+  box-shadow: 0 0 15px  #560BAD;
+}
+
+.contact-title {
+  font-size: 48px;
+  margin-bottom: 40px;
+  color: white;
+  letter-spacing: 1px;
+}
+
+/* Glass Tray Container */
+.glass-tray {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px;
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  border: 2px solid rgba(255, 255, 255, 0.05);
+  transition: box-shadow 0.5s ease, border 0.5s ease;
+}
+
+/* Tray Glow on Hover */
+.glass-tray:hover {
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.4), 0 0 30px rgba(0, 255, 255, 0.3);
+    border: 2px solid rgba(0, 255, 255, 0.4); /* Light edge glow */
+}
+
+/* Contact Buttons */
+.contact-button {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 15px;
+  padding: 15px 25px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.contact-button .icon {
+  flex: 0 0 30%;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contact-button .text {
+  flex: 1;
+  text-align: left;
+}
+
+/* Multicolor Edge Lighting for Button */
+.contact-button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  padding: 2px;
+  background: linear-gradient(270deg, #00f, #0ff, #0f0, #ff0, #f00, #f0f);
+  background-size: 600% 600%;
+  animation: borderGlow 4s ease infinite;
+  z-index: -1;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+@keyframes borderGlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Hover Effect on Button */
+.contact-button:hover {
+  transform: scale(1.05);
+  background-color: rgba(0, 255, 255, 0.05);
+}
