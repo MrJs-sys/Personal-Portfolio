@@ -1,96 +1,189 @@
 .contact-section {
-  padding: 80px 20px;
+  padding: 60px 30px;
+  background: transparent;
+  color: white;
   text-align: center;
-  background: #040c18;
-  box-shadow: 0 0 15px  #560BAD;
+  font-family: 'Poppins', sans-serif;
+  box-shadow: 0 15px 0px 0px  #560BAD;
+  padding: 60px 20%;
 }
 
 .contact-title {
-  font-size: 48px;
-  margin-bottom: 40px;
-  color: white;
-  letter-spacing: 1px;
+  font-size: 2.5rem;
+  margin-top: 50px;
+  color: #ffffff;
+  text-shadow: 0 0 15px #7209b7;
+  margin-bottom: 10px;
+  font-family: 'Montserrat', sans-serif;
 }
 
-/* Glass Tray Container */
+.contact-intro {
+  font-style: italic;
+  font-size: 1.2rem;
+  color: #b2bec3;
+  margin: 50px 0;
+}
+.glass-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 40px;
+  margin-top: 40px;
+}
+
+/* Tray for social links */
 .glass-tray {
+  background: rgba(255, 255, 255, 0.07);
+  border-radius: 20px;
+  backdrop-filter: blur(12px);
+  padding: 30px;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 40px;
-  border-radius: 30px;
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(20px);
-  border: 2px solid rgba(255, 255, 255, 0.05);
-  transition: box-shadow 0.5s ease, border 0.5s ease;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  border: 2px solid transparent;
+  position: relative;
+  box-shadow: 0 0 20px rgba(114, 9, 183, 0.2);
+  flex: 1;
+  min-width: 320px;
+  max-width: 500px;
+  min-height: 550px;
+  max-height: 550px;
 }
 
-/* Tray Glow on Hover */
-.glass-tray:hover {
-    box-shadow: 0 0 20px rgba(0, 255, 255, 0.4), 0 0 30px rgba(0, 255, 255, 0.3);
-    border: 2px solid rgba(0, 255, 255, 0.4); /* Light edge glow */
+.glass-tray::before {
+  content: '';
+  position: absolute;
+  top: -2px; left: -2px; right: -2px; bottom: -2px;
+  border-radius: 22px;
+  background: linear-gradient(135deg, #ff6ec4, #7873f5, #4ef1de, #fcb045);
+  background-size: 400% 400%;
+  z-index: -1;
+  animation: glowBorder 6s ease infinite;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  -webkit-mask-composite: destination-out;
+  padding: 2px;
 }
 
-/* Contact Buttons */
+/* Social Buttons */
 .contact-button {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
-  gap: 15px;
-  padding: 15px 25px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.08);
+  gap: 12px;
+  padding: 12px 20px;
+  border-radius: 30px;
+  background-color: rgba(255, 255, 255, 0.08);
   color: white;
-  font-size: 16px;
-  font-weight: 500;
+  font-weight: 600;
   text-decoration: none;
-  position: relative;
-  overflow: hidden;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.contact-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #7209b7, 0 0 30px #9d4edd;
 }
 
 .contact-button .icon {
-  flex: 0 0 30%;
-  font-size: 24px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  font-size: 20px;
 }
 
-.contact-button .text {
+/* Contact Form */
+.contact-form {
+  background: rgba(255, 255, 255, 0.07);
+  border-radius: 20px;
+  backdrop-filter: blur(12px);
+  padding: 30px;
   flex: 1;
-  text-align: left;
+  min-width: 320px;
+  max-width: 500px;
+  min-height: 550px;
+  max-height: 550px;
+  border: 2px solid transparent;
+  position: relative;
+  box-shadow: 0 0 20px rgba(114, 9, 183, 0.2);
 }
 
-/* Multicolor Edge Lighting for Button */
-.contact-button::before {
-  content: "";
+.contact-form::before {
+  content: '';
   position: absolute;
-  inset: 0;
-  border-radius: 999px;
-  padding: 2px;
-  background: linear-gradient(270deg, #00f, #0ff, #0f0, #ff0, #f00, #f0f);
-  background-size: 600% 600%;
-  animation: borderGlow 4s ease infinite;
+  top: -2px; left: -2px; right: -2px; bottom: -2px;
+  border-radius: 22px;
+  background: linear-gradient(135deg, #ff6ec4, #7873f5, #4ef1de, #fcb045);
+  background-size: 400% 400%;
   z-index: -1;
+  animation: glowBorder 6s ease infinite;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
   mask-composite: exclude;
+  -webkit-mask-composite: destination-out;
+  padding: 2px;
 }
 
-@keyframes borderGlow {
+.contact-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 12px 16px;
+  border: none;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.15);
+  color: white;
+  font-size: 1rem;
+  resize: none;
+  font-family: inherit;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.contact-form button {
+  padding: 12px;
+  border-radius: 30px;
+  background-color: #7209b7;
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.contact-form button:hover {
+  background-color: #9d4edd;
+  transform: scale(1.05);
+}
+
+@keyframes glowBorder {
   0% {
     background-position: 0% 50%;
   }
-  100% {
+  50% {
     background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
   }
 }
 
-/* Hover Effect on Button */
-.contact-button:hover {
-  transform: scale(1.05);
-  background-color: rgba(0, 255, 255, 0.05);
+@media (max-width: 768px) {
+  .glass-container {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.form-status {
+  margin-top: 12px;
+  font-size: 1rem;
+  color: #c6c6c6;
 }

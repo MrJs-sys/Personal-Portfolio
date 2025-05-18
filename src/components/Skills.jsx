@@ -1,163 +1,67 @@
 import React, { useEffect, useState } from "react";
+import axiosInstance from "../api/axiosInstance";
 import "./Skills.css";
 
 const Skills = () => {
-  const [scrolling, setScrolling] = useState(false);
+  const [skillData, setSkillData] = useState([]);
+  const [activeSkill, setActiveSkill] = useState(null);
 
   useEffect(() => {
-    const onScroll = () => {
-      if (window.scrollY > 300) {
-        setScrolling(true);
-      } else {
-        setScrolling(false);
+    const fetchSkills = async () => {
+      try {
+        const response = await axiosInstance.get("/skills");
+        setSkillData(response.data);
+      } catch (error) {
+        console.error("Error fetching skills:", error);
       }
     };
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
+    fetchSkills();
   }, []);
 
   return (
-    <div id="skills" className={`skills-section ${scrolling ? "show" : ""}`}>
-      <div className="skills-card">
-        <h1 className="skills-heading">Skills</h1>
-        <p style={{ color: '#b2bec3', fontSize: '1.2rem', marginTop: '10px', marginBottom: '50px', textAlign: 'center', fontStyle: 'italic' }}>
-  "A quick overview of the skills and technologies I'm proficient in."
-</p>
-        <div className="skills-container">
-          {/* Basic Technical Skills */}
-          <div className="skill-category">
-            <h3>🛠️ Basic Technical Skills</h3>
-            <ul>
-              <li>Programming Concepts (Loops, Functions, Variables)</li>
-              <li>HTML5, CSS3 (Flexbox, Grid Layouts)</li>
-              <li>JavaScript Basics (DOM, Events)</li>
-              <li>Git Version Control</li>
-              <li>Basic Databases (MySQL, MongoDB)</li>
-              <li>Basic UI/UX Design</li>
-              <li>Linux/Unix Terminal Usage</li>
-              <li>Responsive Web Design, Cross-Browser Compatibility</li>
-              <li>Web Hosting (Netlify, Vercel)</li>
-              <li>Basic API Integration (GET/POST requests)</li>
-            </ul>
-          </div>
+    <section id="skills" className="skills-section">
+      <h2 className="skills-heading">My Superpowers "Skills!"</h2>
+      <p className="skills-intro">
+        "Exploring a wide spectrum of technologies—from cloud platforms and AI/ML to data science and full-stack development—constantly learning and growing to create meaningful and innovative solutions."
+      </p>
+      <p className="skills-intro">Click to explore the technologies and tools I'm skilled in.</p>
 
-          {/* AI/ML Skills */}
-          <div className="skill-category">
-            <h3>🧠 AI/ML Skills</h3>
-            <ul>
-              <li>AutoML, Transfer Learning</li>
-              <li>Anomaly Detection, Explainable AI</li>
-              <li>Reinforcement Learning (Q-Learning, DQN)</li>
-              <li>Speech Recognition</li>
-              <li>Recommendation Systems</li>
-              <li>Hyperparameter Tuning</li>
-              <li>Dimensionality Reduction (PCA, t-SNE, UMAP)</li>
-              <li>Neural Architecture Search</li>
-              <li>Federated Learning</li>
-              <li>ML Ops (Model Monitoring & Deployment)</li>
-            </ul>
+      <div className={`skills-grid ${activeSkill !== null ? "dimmed" : ""}`}>
+        {skillData.map((item, index) => (
+          <div
+            className="skill-button"
+            key={index}
+            onClick={() => setActiveSkill(index)}
+          >
+            <span className="skill-button-text">{item.category}</span>
           </div>
-
-          {/* Web Development Skills */}
-          <div className="skill-category">
-            <h3>💻 Web Development</h3>
-            <ul>
-              <li>Full Stack Development (React.js, Node.js, React Native)</li>
-              <li>Frontend (HTML, CSS, JavaScript)</li>
-              <li>Backend (Node.js, PHP)</li>
-              <li>RESTful APIs, GraphQL</li>
-              <li>Version Control with Git</li>
-            </ul>
-          </div>
-
-          {/* Cloud & DevOps */}
-          <div className="skill-category">
-            <h3>☁️ Cloud Technologies & DevOps</h3>
-            <ul>
-              <li>AWS, Azure, Google Cloud</li>
-              <li>Docker, Kubernetes</li>
-              <li>CI/CD (Jenkins, GitLab CI)</li>
-              <li>Infrastructure as Code (Terraform)</li>
-              <li>Serverless Architecture (AWS Lambda)</li>
-            </ul>
-          </div>
-
-          {/* Database */}
-          <div className="skill-category">
-            <h3>🗄️ Databases</h3>
-            <ul>
-              <li>MySQL, MongoDB</li>
-              <li>Firebase, DynamoDB, Firestore</li>
-              <li>Data Warehousing (BigQuery, Redshift)</li>
-              <li>NoSQL (Cassandra, CouchDB)</li>
-            </ul>
-          </div>
-
-          {/* Mobile App Development */}
-          <div className="skill-category">
-            <h3>📱 Mobile Development</h3>
-            <ul>
-              <li>React Native</li>
-              <li>Mobile UI/UX Design</li>
-              <li>App Deployment</li>
-            </ul>
-          </div>
-
-          {/* Testing */}
-          <div className="skill-category">
-            <h3>🧪 Testing</h3>
-            <ul>
-              <li>Requirement-based, Black-box Testing</li>
-              <li>Selenium, Jest, Mocha, Cypress</li>
-              <li>Test Automation</li>
-            </ul>
-          </div>
-
-          {/* Embedded & IoT */}
-          <div className="skill-category">
-            <h3>🔧 Embedded Systems & IoT</h3>
-            <ul>
-              <li>Embedded Systems Programming</li>
-              <li>TargetLink, Simulink</li>
-              <li>IoT Development</li>
-            </ul>
-          </div>
-
-          {/* Blockchain */}
-          <div className="skill-category">
-            <h3>⛓️ Blockchain</h3>
-            <ul>
-              <li>Solidity</li>
-              <li>Ethereum Smart Contracts</li>
-            </ul>
-          </div>
-
-          {/* Miscellaneous */}
-          <div className="skill-category">
-            <h3>🎨 Miscellaneous</h3>
-            <ul>
-              <li>UI/UX Design (Figma, Adobe XD)</li>
-              <li>Microsoft Office, Advanced Excel</li>
-              <li>Documentation Management</li>
-            </ul>
-          </div>
-
-          {/* Soft Skills */}
-          <div className="skill-category">
-            <h3>🌟 Soft Skills</h3>
-            <ul>
-              <li>Problem Solving</li>
-              <li>Communication & Collaboration</li>
-              <li>Leadership & Mentorship</li>
-              <li>Time Management</li>
-              <li>Client Interaction</li>
-              <li>Adaptability & Flexibility</li>
-            </ul>
-          </div>
-
-        </div>
+        ))}
       </div>
-    </div>
+
+      {activeSkill !== null && (
+        <div className="skill-popup-overlay">
+          <div className="skill-popup-card">
+            <button
+              className="skill-popup-close-btn"
+              onClick={() => setActiveSkill(null)}
+              aria-label="Close skill popup"
+            >
+              &times;
+            </button>
+            <h3 className="skill-category">
+              {skillData[activeSkill]?.category}
+            </h3>
+            <div className="skill-tags">
+              {skillData[activeSkill]?.skills.map((skill, idx) => (
+                <span className="skill-tag" key={idx}>
+                  {skill}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
+    </section>
   );
 };
 

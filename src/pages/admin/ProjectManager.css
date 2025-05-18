@@ -1,0 +1,273 @@
+.project-manager-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #05081c;
+  color: #ffffff;
+  width: 100vw;
+  overflow-x: hidden;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.admin-header {
+  background-color: #1c1c3a;
+  padding: 1rem 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #35355c;
+}
+
+.admin-header h1 {
+  font-size: 1.7rem;
+  color: #ffffff;
+  cursor: pointer;
+  user-select: none;
+  font-weight: 600;
+}
+
+.logout-button {
+  background-color: #751ad1;
+  color: white;
+  border: none;
+  padding: 0.65rem 1.4rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.logout-button:hover {
+  background-color: #6b58b8;
+}
+
+.project-manager {
+  flex: 1;
+  max-width: 1800px;
+  margin: 1.5rem auto 2rem;
+  width: 95%;
+  padding: 1rem 2rem;
+  box-sizing: border-box;
+}
+
+.manage-heading {
+  margin-bottom: 1rem;
+  font-weight: 700;
+  font-size: 1.9rem;
+  color: #dcd6f7;
+  user-select: none;
+}
+
+/* Flex container for form and project list side by side */
+.content-row {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+/* Form styling */
+.project-form {
+  background: #121228;
+  border-radius: 12px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  width: 450px; /* fixed width */
+  flex-shrink: 0;
+}
+
+.project-form input,
+.project-form textarea {
+  background-color: #29293d;
+  border: none;
+  border-radius: 8px;
+  padding: 0.85rem 1rem;
+  color: #dcd6f7;
+  font-size: 1rem;
+  outline-offset: 2px;
+  outline-color: #161324;
+  transition: outline-color 0.3s ease;
+  resize: vertical;
+}
+
+.project-form input:focus,
+.project-form textarea:focus {
+  outline-color: #1e1d26;
+}
+
+.project-form button {
+  background-color: #751ad1;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0.9rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.project-form button:hover {
+  background-color: #6b58b8;
+}
+
+/* Project list styling */
+.project-list.card-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  max-height: 80vh;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #8b79d6 #1c1c3a;
+  padding-right: 0.5rem;
+  flex: 1; /* take remaining space */
+}
+
+.project-list.card-grid::-webkit-scrollbar {
+  width: 8px;
+}
+
+.project-list.card-grid::-webkit-scrollbar-track {
+  background: #1c1c3a;
+  border-radius: 8px;
+}
+
+.project-list.card-grid::-webkit-scrollbar-thumb {
+  background-color: #8b79d6;
+  border-radius: 8px;
+  border: 2px solid #1c1c3a;
+}
+
+.project-list p {
+  color: #b9b5d9;
+  font-style: italic;
+  text-align: center;
+}
+
+/* Individual project card */
+.project-card {
+  background: #121228;
+  border-radius: 12px;
+  padding: 1.5rem 1.8rem;
+  box-shadow: 0 0 8px rgba(9, 5, 34, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  height: 100%;
+}
+
+/* Project title */
+.project-card h3 {
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 1.3rem;
+  margin: 0;
+}
+
+/* Project image at top */
+.project-image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 0.75rem;
+  box-shadow: 0 0 8px rgba(168, 159, 232, 0.2);
+}
+
+/* Project description */
+.project-card p {
+  color: #dcd6f7;
+  font-size: 1rem;
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* Tech stack tags */
+.tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.tech-tag {
+  background-color: #2b2b2c;
+  color: white;
+  padding: 0.3rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  user-select: none;
+}
+
+/* Links container */
+.links {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+/* Links as buttons */
+.links a.btn {
+  background-color: rgba(255, 255, 255, 0.07);
+  color: white;
+  text-decoration: none;
+  padding: 0.6rem 1rem;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: background-color 0.3s ease;
+}
+
+.links a.btn:hover {
+  background-color: #6b58b8;
+}
+
+/* Action buttons (edit/delete) aligned right */
+.actions {
+  margin-top: auto; /* pushes actions to bottom if card expands */
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+.actions button {
+  padding: 0.45rem 1.1rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: background-color 0.3s ease;
+  user-select: none;
+}
+
+.actions .edit {
+  background-color: #751ad1;
+  color: white;
+}
+
+.actions .edit:hover {
+  background-color: #6b58b8;
+}
+
+.actions .delete {
+  background-color: #ee1818;
+  color: white;
+}
+
+.actions .delete:hover {
+  background-color: #924242;
+}
+
+.admin-footer {
+  background-color: #1c1c3a;
+  padding: 1rem 3rem;
+  text-align: center;
+  border-top: 1px solid #35355c;
+  color: #9a94b8;
+  font-size: 0.9rem;
+  user-select: none;
+}

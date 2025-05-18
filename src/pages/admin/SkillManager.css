@@ -1,0 +1,215 @@
+.admin-section {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #0f1123; /* subtle dark blue */
+  color: #ffffff; /* soft off-white */
+  width: 100vw;
+  overflow-x: hidden;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.admin-header {
+  background-color: #1c1c3a; /* calm dark navy */
+  padding: 1rem 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #35355c;
+}
+
+.admin-header h1 {
+  font-size: 1.7rem;
+  color: #ffffff; /* muted soft purple */
+  cursor: pointer;
+  user-select: none;
+  font-weight: 600;
+}
+
+.logout-button {
+  background-color: #751ad1; /* mellow purple */
+  color: white;
+  border: none;
+  padding: 0.65rem 1.4rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.logout-button:hover {
+  background-color: #7e4ebe; /* darker purple on hover */
+}
+
+.admin-main {
+  flex: 1;
+  max-width: 1800px;
+  margin: 1.5rem auto 2rem;
+  width: 95%;
+  padding: 1rem 2rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.form-section {
+  flex: 1 1 300px;
+  background: #191930; /* subtle deep navy */
+  border-radius: 12px;
+  padding: 2rem;
+  
+}
+
+.form-section h2 {
+  margin-bottom: 1.5rem;
+  color: #ffffff;
+}
+
+.admin-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.admin-form input {
+  background-color: #29293d; /* softer navy */
+  border: none;
+  border-radius: 8px;
+  padding: 0.85rem 1rem;
+  color: #dcd6f7;
+  font-size: 1rem;
+  outline-offset: 2px;
+  outline-color: #161324;
+  transition: outline-color 0.3s ease;
+}
+
+.admin-form input:focus {
+  outline-color: #1e1d26;
+}
+
+.admin-form button {
+  background-color: #751ad1; /* muted purple */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0.9rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.admin-form button:hover {
+  background-color: #6b58b8;
+}
+
+.list-section {
+  flex: 2 1 800px;
+  background: #191930;
+  border-radius: 12px;
+  padding: 2rem;
+  max-height: 80vh;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #8b79d6 #1c1c3a;
+}
+
+/* Scrollbar styling for Webkit browsers */
+.list-section::-webkit-scrollbar {
+  width: 8px;
+}
+
+.list-section::-webkit-scrollbar-track {
+  background: #1c1c3a;
+  border-radius: 8px;
+}
+
+.list-section::-webkit-scrollbar-thumb {
+  background-color: #8b79d6;
+  border-radius: 8px;
+  border: 2px solid #1c1c3a;
+}
+
+.list-section h2 {
+  margin-bottom: 1.5rem;
+  color: #ffffff;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.admin-card {
+  background: #2f2f5a;
+  border-radius: 12px;
+  padding: 1.5rem 1.8rem;
+  box-shadow: 0 0 8px rgba(168, 159, 232, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.admin-card h3 {
+  margin-bottom: 1rem;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 1.25rem;
+}
+
+.admin-card ul {
+  list-style-type: disc;
+  margin-left: 1.2rem;
+  color: #dcd6f7;
+  font-size: 1rem;
+  line-height: 1.5;
+  padding-left: 0;
+  margin-bottom: 1.3rem;
+}
+
+.card-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+.card-actions button {
+  padding: 0.45rem 1.1rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: background-color 0.3s ease;
+}
+
+.card-actions .edit {
+  background-color:#751ad1;
+  color: white;
+}
+
+.card-actions .edit:hover {
+  background-color: #6b58b8;
+}
+
+.card-actions .delete {
+  background-color: #ee1818;
+  color: white;
+}
+
+.card-actions .delete:hover {
+  background-color: #924242;
+}
+
+.admin-footer {
+  background-color: #1c1c3a;
+  padding: 1rem 3rem;
+  text-align: center;
+  border-top: 1px solid #35355c;
+  color: #9a94b8;
+  font-size: 0.9rem;
+  user-select: none;
+}

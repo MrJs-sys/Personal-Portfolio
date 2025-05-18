@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import './HeroSection.css'; 
-import ri from '../assets/2.png'; 
+import ri from '../assets/2.gif'; 
 
 const HeroSection = () => {
   useEffect(() => {
@@ -31,7 +31,7 @@ const HeroSection = () => {
 <div className="hero-left">
           <h1>Hi there! <br/> I'm Jyotishman</h1>
           <p>I specialize in AI/ML solutions, backed by expertise in Cloud Computing and Infosec, to create secure, scalable systems. Additionally, I offer design, development, and social media management services to help businesses grow digitally.</p> <p>Let's collaborate and bring innovative, secure solutions to your project.</p>
-          <a href="#contact" className="cta-button">Hire Me</a>
+          <a href="#contact" className="cta-button">Hire Me!</a>
         </div>
 
         <div className="hero-right">
