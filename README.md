@@ -3,7 +3,7 @@
 
 ### 1. Clone the repository 
        git clone https://github.com/MrJs-sys/Personal-Portfolio.git
-### 2. Create a folder Personal_Portfolio
+### 2. Create a folder structure > Personal_Portfolio 
        inside personal_portfolio create two folder "front-end and "backend"
        In frontend paste the folders [public, src, package and package-lock]
        in backend paste the folders [controller, middleware, models, routes, .env, package, package-lock, server.js]
